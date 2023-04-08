@@ -1,0 +1,164 @@
+/* declarations */
+:root {
+    --flutter-blue: rgb(0, 199, 250);
+    --flutter-dark-blue: rgb(0, 67, 123);
+    --flutter-blue: rgba(0, 199, 250, 0.8);
+    --flutter-dark-blue: rgba(0, 67, 123, 0.8);
+}
+
+@keyframes entranceAnimation {
+    0% {
+        transform: translateY(-150vmax);
+        opacity: 0;
+    }
+
+    80%{
+        transform: translateY(5vmax);
+        opacity: 1;
+    }
+
+    100% {
+        transform: none;
+        opacity: 1;
+    }
+}
+
+@keyframes appearAnimation {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.background {
+    width: 100vmin;
+    animation-delay: 0.1s;
+    position: fixed;
+    top: 0;
+    left: calc(50% - 50vmin);
+}
+
+.right {
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+.visible {
+    transform: translateY(calc(-100vmax));
+    opacity: 0;
+    animation-name: entranceAnimation;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(.5,0,.5,1);
+}
+
+.top {
+    background-size: cover;
+    display: block;
+    text-align: center;
+    position: absolute;
+    overflow-x: hidden;
+    top: 0;
+    left: calc(50% - var(--screen-width) / 2);
+    width: var(--screen-width);
+    height: 100vmin;
+}
+
+.top>.blur {
+    opacity: 0;
+    background-color: var(--black-transparent);
+    animation-name: appearAnimation;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-delay: 1.5s;
+    filter: blur(5vmin);
+    position: absolute;
+    top: -10%;
+    left: -15%;
+    height: 100%;
+    width: 130%;
+}
+
+.top>p {
+    padding: 0 2vmin;
+    cursor: pointer;
+    user-select: none;
+    transition: color 1s;
+    position: absolute;
+}
+
+.top>.blueAnimation:hover {
+    color: blue;
+}
+
+.top>.yellowAnimation:hover {
+    color: yellow;
+}
+
+.top>.introduction {
+    font-size: var(--font-size);
+    animation-delay: 0.25s;
+    top: 1vmin;
+    left: 1vmin;
+}
+
+.top>.name {
+    font-size: calc(2.5 * var(--font-size));
+    animation-delay: 0.75s;
+    left: 6vmin;
+}
+
+.top>.nickname {
+    font-size: var(--font-size);
+    animation-delay: 1.25s;
+    top: calc(5 * var(--font-size));
+    right: 1vmin;
+}
+
+.top>.description {
+    margin-top: 20vmin;
+    font-size: calc(1.5 * var(--font-size));
+    top: calc(5 * var(--font-size));
+    animation-delay: 2s;
+}
+
+.top>.title {
+    margin-top: 20vmin;
+    font-size: calc(2 * var(--font-size));
+    top: calc(12 * var(--font-size));
+    animation-delay: 3.5s;
+}
+
+.bottom {
+    position: absolute;
+    top: 105vmin;
+    left: calc(50% - 0.5 * var(--screen-width));
+    width: var(--screen-width);
+}
+
+.flutter {
+    border-color: var(--flutter-blue);
+    animation-delay: 6s;
+}
+
+.hoverable {
+    transition: background-color 0.5s;
+}
+
+.flutter>a>.hoverable:hover {
+    background-color: var(--flutter-dark-blue)
+}
+
+.flutter>.description {
+    background-color: var(--flutter-blue);
+    width: 100%;
+    height: calc(2 * var(--font-size));
+    padding: 1vmin 0 1vmin 0;
+    line-height: normal;
+}

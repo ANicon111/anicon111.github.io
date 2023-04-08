@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="assets/icons/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="/containrrassets/style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Nicon-Georgian Albu's Portfolio (ANicon111)</title>
+</head>
+
+<body>
+    <img class="visible background" src="assets/icon.png" />
+    <span class="top">
+        <div class="blur"></div>
+        <p class="introduction blueAnimation left visible">Hello there, my name is</p>
+        <p class="name yellowAnimation visible">Nicon-Georgian Albu</p>
+        <p class="nickname blueAnimation right visible">and I'm also known as ANicon111 online.</p>
+        <p class="description yellowAnimation visible">I'm a full stack developer with experience in Flutter,
+            Rust, C/C++, SQL, HTML, CSS and Javascript.</p>
+        <p class="title blueAnimation visible">And these are some of the projects I had the opportunity to work
+            on:</p>
+    </span><br>
+    <div class="bottom">
+        <div class="section flutter visible">
+            <img src="assets/logos/flutter.svg" class="description"></img>
+        </div>
+        <span class="links visible">
+            <a href="https://www.instagram.com/ANicon101/">
+                <img src="assets/logos/instagram.svg" />
+            </a>
+            <a href="https://www.facebook.com/ANicon111">
+                <img src="assets/logos/facebook.png" />
+            </a>
+            <a href="https://twitter.com/ANicon111">
+                <img src="assets/logos/twitter.svg" />
+            </a>
+            <a href="https://github.com/ANicon111">
+                <img src="assets/logos/github.png" />
+            </a>
+            <a href="https://www.linkedin.com/in/ANicon111">
+                <img src="assets/logos/linkedin.svg" />
+            </a>
+            <a href="https://www.youtube.com/@ANicon111">
+                <img src="assets/logos/youtube.png" />
+            </a>
+            <a href="https://www.reddit.com/user/ANicon101">
+                <img src="assets/logos/reddit.png" />
+            </a>
+            <p class="copyright">©Nicon-Georgian Albu 2023</p>
+        </span>
+    </div>
+</body>
+
+<footer>
+    <script>
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        }
+        //projects
+        class Project {
+            constructor(id, title, description) {
+                this.id = id;
+                this.title = title;
+                this.description = description;
+            }
+        }
+        const projects = new Map([
+            ["flutter", [
+                new Project("rubikssolver", "Rubik's Solver", "An arbitrary size magic cube solver"),
+                new Project("keyrunner", "Key Runner", "A minimalist speed typing game"),
+                new Project("infinimines", "Infini-Mines", "An infinite mine clearing game"),
+                new Project("quintis", "Quintis", "A block stacking game with customisable pieces"),
+                new Project("tictactoe", "TicTacToe", "The classic"),
+                new Project("proceduralclicker", "Procedural Clicker", "A cookie clicker with procedurally generated characters"),
+            ]]
+        ]);
+        //adding projects
+        var left = true;
+        projects.forEach(function (value, key) {
+            var currentProject = document.body.getElementsByClassName(key)[0];
+
+            for (const index in value) {
+                const text = value[index];
+                if (left) {
+                    currentProject.innerHTML +=
+                        '<a href="/sketches/' + text.id + '/">\
+                            <span class="screenshotProject left hoverable">\
+                                <img src="assets/screenshots/'+ text.id + '.png" />\
+                                <span>\
+                                    <p class="title">'+ text.title + '</p><br />\
+                                    <p class="description">'+ text.description + '</p>\
+                                </span>\
+                            </span>\
+                        </a>';
+                } else {
+                    currentProject.innerHTML +=
+                        '<a href="/sketches/' + text.id + '/">\
+                            <span class="screenshotProject right hoverable">\
+                                <span>\
+                                    <p class="title">'+ text.title + '</p><br />\
+                                    <p class="description">'+ text.description + '</p>\
+                                </span>\
+                                <img src="assets/screenshots/'+ text.id + '.png" />\
+                            </span>\
+                        </a>'
+                }
+                left = !left;
+            }
+        })
+        if (document.cookie != "") {
+            var elements = document.body.getElementsByClassName('visible');
+            var n = elements.length;
+            for (i = 0; i < n; i++) {
+                elements[i].setAttribute("style", "animation-delay:" + i * .2 + "s;");
+            }
+        }
+
+        document.cookie = "visited=true;SameSite=Lax;expires=" + (new Date(Date.now() + (30 * 24 * 60 * 60 * 1000))).toUTCString() + ";path=/";
+    </script>
+</footer>
+
+</html>
