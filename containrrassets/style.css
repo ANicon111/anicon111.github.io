@@ -1,0 +1,123 @@
+/* declarations */
+:root {
+    /*dimensions*/
+    --font-size: clamp(1rem, 3vmin, 3rem);
+    --screen-width: max(100vmin, 60vw);
+    --screen-height: max(100vmin, 60vh);
+    /*colors*/
+    --black: #191919;
+    --black-transparent: var(--black);
+    --black-transparent: rgba(25, 25, 25, 0.9);
+}
+
+
+/* legacy (apparently ._.) */
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(fonts/qsandlight.ttf) format('ttf');
+}
+
+/* latin-ext */
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(fonts/qsandlight-latin-extended.woff2) format('woff2');
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(fonts/qsandlight-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+body {
+    background-color: var(--black);
+    font-family: 'Quicksand', sans-serif;
+    text-align: center;
+    color: white;
+}
+
+.section {
+    border-width: 1vmin;
+    border-style: solid;
+    border-radius: 1vmin;
+    width: calc(100% - 2vmin);
+    font-size: 0;
+    height: min-content;
+    display: block;
+    flex-direction: column;
+}
+
+.screenshotProject {
+    display: block;
+    width: calc(0.98 * var(--screen-width));
+    height: calc(0.3 * var(--screen-width));
+    background-color: var(--black-transparent);
+    color: white;
+    line-height: normal;
+}
+
+.screenshotProject>img {
+    height: 100%;
+    width: auto;
+    display: inline-block;
+}
+
+.screenshotProject>span {
+    display: inline-block;
+    height: 100%;
+    width: 44%;
+    vertical-align: top;
+    text-align: center;
+}
+
+.screenshotProject>span>.title {
+    font-size: calc(1.5 * var(--font-size));
+    display: inline-block;
+    margin: 0;
+}
+
+.screenshotProject>span>.description {
+    font-size: var(--font-size);
+    display: inline-block;
+    margin: var(--font-size) 0 0 0;
+}
+
+.links {
+    display: inline-block;
+    width: var(--screen-width);
+    position: relative;
+    left: max(50% - var(--screen-width) / 2);
+    background-color: var(--black-transparent);
+    border-radius: 1vmin 1vmin 0 0;
+    margin-top: 1vmin;
+    padding: 1vmin 0 1vmin 0;
+    animation-delay: 7s;
+    font-size:0;
+}
+
+.links>a>span {
+    font-size: var(--font-size);
+    cursor: pointer;
+}
+
+.links>a>img {
+    width: calc(3 * var(--font-size));
+    height: calc(3 * var(--font-size));
+    padding: var(--font-size) var(--font-size) 0 var(--font-size);
+    cursor: pointer;
+}
+
+.links>.copyright {
+    font-size: var(--font-size);
+}
