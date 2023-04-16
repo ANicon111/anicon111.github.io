@@ -1,7 +1,9 @@
+<!-- Copyright © 2023 Nicon-Georgian Albu -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="assets/icons/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/icons/apple-icon-72x72.png">
@@ -16,20 +18,25 @@
     <link rel="icon" type="image/png" sizes="96x96" href="assets/icons/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
     <link rel="manifest" href="assets/icons/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#000000">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="theme-color" content="#000000">
+    <meta name='description'
+        content="Nicon-Geogian Albu's portfolio page. Also known as ANicon111, he is a full stack developer with experience in Flutter, Rust, C/C++, SQL, HTML, CSS and Javascript." />
+    <meta name="author" content="Nicon-Geogian Albu" />
     <link rel="stylesheet" href="/containrrassets/style.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Nicon-Georgian Albu's Portfolio (ANicon111)</title>
 </head>
 
 <body>
-    <img class="visible background" src="assets/icon.png" />
+    <img class="background" src="assets/background.jpg" />
+    <img class="visible background-logo" src="assets/icon.png" />
     <span class="top">
-        <div class="blur"></div>
+        <div class="visible design"></div>
+        <h1 style="opacity:0; position:fixed; top:-100;">Hello there, my name is Nicon-Georgian Albu and I'm also known
+            as ANicon111 online. I'm a full stack developer with experience in Flutter, Rust, C/C++, SQL, HTML, CSS and
+            Javascript. And these are some of the projects I had the opportunity to work on:</h1>
         <p class="introduction blueAnimation left visible">Hello there, my name is</p>
         <p class="name yellowAnimation visible">Nicon-Georgian Albu</p>
         <p class="nickname blueAnimation right visible">and I'm also known as ANicon111 online.</p>
@@ -40,31 +47,11 @@
     </span><br>
     <div class="bottom">
         <div class="section flutter visible">
-            <img src="assets/logos/flutter.svg" class="description"></img>
+            <img src="assets/logos/flutter.svg" class="description" />
         </div>
-        <span class="links visible">
-            <a href="https://www.instagram.com/ANicon101/">
-                <img src="assets/logos/instagram.svg" />
-            </a>
-            <a href="https://www.facebook.com/ANicon111">
-                <img src="assets/logos/facebook.png" />
-            </a>
-            <a href="https://twitter.com/ANicon111">
-                <img src="assets/logos/twitter.svg" />
-            </a>
-            <a href="https://github.com/ANicon111">
-                <img src="assets/logos/github.png" />
-            </a>
-            <a href="https://www.linkedin.com/in/ANicon111">
-                <img src="assets/logos/linkedin.svg" />
-            </a>
-            <a href="https://www.youtube.com/@ANicon111">
-                <img src="assets/logos/youtube.png" />
-            </a>
-            <a href="https://www.reddit.com/user/ANicon101">
-                <img src="assets/logos/reddit.png" />
-            </a>
-            <p class="copyright">©Nicon-Georgian Albu 2023</p>
+        <span class="links-box visible">
+            <div class="links"></div>
+            <p class="copyright">&copy; 2023 Nicon-Georgian Albu</p>
         </span>
     </div>
 </body>
@@ -74,7 +61,7 @@
         window.onbeforeunload = function () {
             window.scrollTo(0, 0);
         }
-        //projects
+
         class Project {
             constructor(id, title, description) {
                 this.id = id;
@@ -82,6 +69,16 @@
                 this.description = description;
             }
         }
+
+        class Link {
+            constructor(img, url, alt) {
+                this.img = img;
+                this.url = url;
+                this.alt = alt;
+            }
+        }
+
+        //projects
         const projects = new Map([
             ["flutter", [
                 new Project("rubikssolver", "Rubik's Solver", "An arbitrary size magic cube solver"),
@@ -92,6 +89,18 @@
                 new Project("proceduralclicker", "Procedural Clicker", "A cookie clicker with procedurally generated characters"),
             ]]
         ]);
+
+        //social links
+        const links = [
+            new Link("instagram.svg", "https://www.instagram.com/ANicon101/", "Instagram Account"),
+            new Link("facebook.png", "https://www.facebook.com/ANicon111", "Facebook Account"),
+            new Link("twitter.svg", "https://twitter.com/ANicon111", "Twitter? Account"),
+            new Link("github.png", "https://github.com/ANicon111", "Github Account"),
+            new Link("linkedin.svg", "https://www.linkedin.com/in/ANicon111", "Linkedin Account"),
+            new Link("youtube.png", "https://www.youtube.com/@ANicon111", "Youtube Account"),
+            new Link("reddit.png", "https://www.reddit.com/user/ANicon101", "Reddit Account"),
+        ];
+
         //adding projects
         var left = true;
         projects.forEach(function (value, key) {
@@ -103,7 +112,7 @@
                     currentProject.innerHTML +=
                         '<a href="https://containrr.com/sketches/' + text.id + '/">\
                             <span class="screenshotProject left hoverable">\
-                                <img src="assets/screenshots/'+ text.id + '.png" />\
+                                <img src="assets/screenshots/'+ text.id + '.png" alt="Screenshot of the \'' + text.title + '\' ' + key + ' project"/>\
                                 <span>\
                                     <p class="title">'+ text.title + '</p><br />\
                                     <p class="description">'+ text.description + '</p>\
@@ -118,13 +127,25 @@
                                     <p class="title">'+ text.title + '</p><br />\
                                     <p class="description">'+ text.description + '</p>\
                                 </span>\
-                                <img src="assets/screenshots/'+ text.id + '.png" />\
+                                <img src="assets/screenshots/'+ text.id + '.png" alt="Screenshot of the \'' + text.title + '\' ' + key + ' project"/>\
                             </span>\
                         </a>'
                 }
                 left = !left;
             }
         })
+
+        //adding links
+        var linkFooter = document.body.getElementsByClassName("links")[0];
+        for (const index in links) {
+            const text = links[index];
+            linkFooter.innerHTML +=
+                '<a href="' + text.url + '">\
+                    <img src="assets/logos/'+ text.img + '"  alt="Nicon-Georgian Albu\'s ' + text.alt + '"/>\
+                </a>';
+        }
+
+        //running animation quickly on further visits
         if (document.cookie != "") {
             var elements = document.body.getElementsByClassName('visible');
             var n = elements.length;

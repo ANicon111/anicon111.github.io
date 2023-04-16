@@ -33,12 +33,20 @@
     }
 }
 
-.background {
+.background-logo {
     width: 100vmin;
     animation-delay: 0.1s;
     position: fixed;
     top: 0;
     left: calc(50% - 50vmin);
+}
+
+.background {
+    height: max( 61.89vw , 110vh );
+    width:auto;
+    position:fixed;
+    top: -5vh;
+    left:calc( 50% - max(55vw, 97.78vh) );
 }
 
 .right {
@@ -64,25 +72,22 @@
     text-align: center;
     position: absolute;
     overflow-x: hidden;
+    overflow-y:visible;
     top: 0;
     left: calc(50% - var(--screen-width) / 2);
     width: var(--screen-width);
     height: 100vmin;
 }
 
-.top>.blur {
-    opacity: 0;
+.top>.design {
     background-color: var(--black-transparent);
-    animation-name: appearAnimation;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-delay: 1.5s;
-    filter: blur(5vmin);
     position: absolute;
-    top: -10%;
-    left: -15%;
-    height: 100%;
-    width: 130%;
+    border:1vmin solid white;
+    border-radius:20vmin;
+    top: -30%;
+    left: 0;
+    height: 115%;
+    width: calc( 100% - 2vmin );
 }
 
 .top>p {
@@ -124,14 +129,14 @@
 .top>.description {
     margin-top: 20vmin;
     font-size: calc(1.5 * var(--font-size));
-    top: calc(5 * var(--font-size));
+    top: calc(3 * var(--font-size));
     animation-delay: 2s;
 }
 
 .top>.title {
     margin-top: 20vmin;
     font-size: calc(2 * var(--font-size));
-    top: calc(12 * var(--font-size));
+    top: calc(11 * var(--font-size));
     animation-delay: 3.5s;
 }
 

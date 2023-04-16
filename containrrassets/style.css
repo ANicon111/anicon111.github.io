@@ -1,7 +1,8 @@
 /* declarations */
 :root {
     /*dimensions*/
-    --font-size: clamp(1rem, 3vmin, 3rem);
+    --font-size: clamp(0.75rem, 3vmin, 3rem);
+    --icon-size: max(1.25rem, 3vmin);
     --screen-width: max(100vmin, 60vw);
     --screen-height: max(100vmin, 60vh);
     /*colors*/
@@ -93,7 +94,7 @@ body {
     margin: var(--font-size) 0 0 0;
 }
 
-.links {
+.links-box {
     display: inline-block;
     width: var(--screen-width);
     position: relative;
@@ -112,12 +113,12 @@ body {
 }
 
 .links>a>img {
-    width: calc(3 * var(--font-size));
-    height: calc(3 * var(--font-size));
-    padding: var(--font-size) var(--font-size) 0 var(--font-size);
+    width: calc(2 * var(--icon-size));
+    height: calc(2 * var(--icon-size));
+    padding: var(--icon-size) var(--icon-size) var(--icon-size) var(--icon-size);
     cursor: pointer;
 }
 
-.links>.copyright {
+.links-box>.copyright {
     font-size: var(--font-size);
 }
