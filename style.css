@@ -4,16 +4,20 @@
     --flutter-dark-blue: rgb(0, 67, 123);
     --flutter-blue: rgba(0, 199, 250, 0.8);
     --flutter-dark-blue: rgba(0, 67, 123, 0.8);
+    --rust-orange: rgb(167, 92, 0);
+    --rust-dark-orange: rgb(151, 44, 6);
+    --rust-orange: rgba(167, 92, 0, 0.8);
+    --rust-dark-orange: rgba(151, 44, 6, 0.8);
 }
 
 @keyframes entranceAnimation {
     0% {
-        transform: translateY(-150vmax);
+        transform: translateY(-250vmin);
         opacity: 0;
     }
 
     80%{
-        transform: translateY(5vmax);
+        transform: translateY(7.5vmin);
         opacity: 1;
     }
 
@@ -33,7 +37,7 @@
     }
 }
 
-.background-logo {
+.backgroundLogo {
     width: 100vmin;
     animation-delay: 0.1s;
     position: fixed;
@@ -58,10 +62,10 @@
 }
 
 .visible {
-    transform: translateY(calc(-100vmax));
+    transform: translateY(calc(-250vmin));
     opacity: 0;
     animation-name: entranceAnimation;
-    animation-duration: 1.5s;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-timing-function: cubic-bezier(.5,0,.5,1);
 }
@@ -83,14 +87,15 @@
     background-color: var(--black-transparent);
     position: absolute;
     border:1vmin solid white;
-    border-radius:20vmin;
-    top: -30%;
+    border-radius:15vmin;
+    top: -25%;
     left: 0;
     height: 115%;
     width: calc( 100% - 2vmin );
 }
 
 .top>p {
+    margin: 0;
     padding: 0 2vmin;
     cursor: pointer;
     user-select: none;
@@ -116,6 +121,7 @@
 .top>.name {
     font-size: calc(2.5 * var(--font-size));
     animation-delay: 0.75s;
+    top: calc(2 * var(--font-size));
     left: 6vmin;
 }
 
@@ -127,16 +133,14 @@
 }
 
 .top>.description {
-    margin-top: 20vmin;
     font-size: calc(1.5 * var(--font-size));
-    top: calc(3 * var(--font-size));
+    top: calc(50% - 5 * var(--font-size));
     animation-delay: 2s;
 }
 
 .top>.title {
-    margin-top: 20vmin;
     font-size: calc(2 * var(--font-size));
-    top: calc(11 * var(--font-size));
+    bottom: 20vmin;
     animation-delay: 3.5s;
 }
 
@@ -152,18 +156,36 @@
     animation-delay: 6s;
 }
 
-.hoverable {
-    transition: background-color 0.5s;
+.flutter>.description{
+    background-color: var(--flutter-blue);
 }
 
 .flutter>a>.hoverable:hover {
     background-color: var(--flutter-dark-blue)
 }
 
-.flutter>.description {
-    background-color: var(--flutter-blue);
+.rust {
+    border-color: var(--rust-orange);
+    animation-delay: 6s;
+}
+
+.rust>.description{
+    background-color: var(--rust-orange);
+}
+
+.rust>a>.hoverable:hover {
+    background-color: var(--rust-dark-orange)
+}
+
+.hoverable {
+    transition: background-color 0.5s;
+}
+
+.section>.description {
     width: 100%;
     height: calc(2 * var(--font-size));
-    padding: 1vmin 0 1vmin 0;
+    font-size: calc(2 * var(--font-size));
+    padding: 0 0 calc(var(--font-size) / 2) 0;
     line-height: normal;
+    user-select: none;
 }

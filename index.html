@@ -24,17 +24,17 @@
     <meta name='description'
         content="Nicon-Geogian Albu's portfolio page. Also known as ANicon111, he is a full stack developer with experience in Flutter, Rust, C/C++, SQL, HTML, CSS and Javascript." />
     <meta name="author" content="Nicon-Geogian Albu" />
-    <link rel="stylesheet" href="/containrrassets/style.css" />
+    <link rel="stylesheet" href="containrrassets/style.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Nicon-Georgian Albu's Portfolio (ANicon111)</title>
 </head>
 
 <body>
-    <img class="background" src="assets/background.jpg" />
-    <img class="visible background-logo" src="assets/icon.png" />
+    <img class="background" src="assets/background.jpg" alt="Nicon-Georgian Albu's portfolio background image'" />
+    <img class="visible backgroundLogo" src="assets/icon.png" alt="Nicon-Georgian Albu's personal logo" />
     <span class="top">
         <div class="visible design"></div>
-        <h1 style="opacity:0; position:fixed; top:-100;">Hello there, my name is Nicon-Georgian Albu and I'm also known
+        <h1 style="opacity:0; position:fixed; top:-100vmax;">Hello there, my name is Nicon-Georgian Albu and I'm also known
             as ANicon111 online. I'm a full stack developer with experience in Flutter, Rust, C/C++, SQL, HTML, CSS and
             Javascript. And these are some of the projects I had the opportunity to work on:</h1>
         <p class="introduction blueAnimation left visible">Hello there, my name is</p>
@@ -47,7 +47,10 @@
     </span><br>
     <div class="bottom">
         <div class="section flutter visible">
-            <img src="assets/logos/flutter.svg" class="description" />
+            <div class="description qsandlightOutilne">Built with the Flutter SDK</div>
+        </div>
+        <div class="section rust visible">
+            <div class="description qsandlightOutilne">Built with Rust</div>
         </div>
         <span class="links-box visible">
             <div class="links"></div>
@@ -55,7 +58,6 @@
         </span>
     </div>
 </body>
-
 <footer>
     <script>
         window.onbeforeunload = function () {
@@ -86,8 +88,10 @@
                 new Project("infinimines", "Infini-Mines", "An infinite mine clearing game"),
                 new Project("quintis", "Quintis", "A block stacking game with customisable pieces"),
                 new Project("tictactoe", "TicTacToe", "The classic"),
-                new Project("proceduralclicker", "Procedural Clicker", "A cookie clicker with procedurally generated characters"),
-            ]]
+            ]],
+            ["rust", [
+                new Project("wip", "PolySolver", "An app that finds all the roots of a polynomial"),
+            ]],
         ]);
 
         //social links
@@ -108,9 +112,11 @@
 
             for (const index in value) {
                 const text = value[index];
+                var link = ' href="https://containrr.com/sketches/' + text.id + '/"'
+                if(text.id=="wip")link='';
                 if (left) {
                     currentProject.innerHTML +=
-                        '<a href="https://containrr.com/sketches/' + text.id + '/">\
+                        '<a' + link + '>\
                             <span class="screenshotProject left hoverable">\
                                 <img src="assets/screenshots/'+ text.id + '.png" alt="Screenshot of the \'' + text.title + '\' ' + key + ' project"/>\
                                 <span>\
@@ -121,7 +127,7 @@
                         </a>';
                 } else {
                     currentProject.innerHTML +=
-                        '<a href="https://containrr.com/sketches/' + text.id + '/">\
+                        '<a' + link + '>\
                             <span class="screenshotProject right hoverable">\
                                 <span>\
                                     <p class="title">'+ text.title + '</p><br />\
