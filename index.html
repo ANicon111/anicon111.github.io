@@ -1,4 +1,4 @@
-<!-- Copyright © 2024 Nicon-Georgian Albu -->
+<!-- Copyright © 2025 Nicon-Georgian Albu -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -98,7 +98,6 @@
                 <a href="https://www.youtube.com/@ANicon111">
                     <img src="assets/logos/youtube.png" alt="Nicon-Georgian Albu's Youtube Account"> </a>
             </div>
-            <p class="copyright">© 2024 Nicon-Georgian Albu</p>
         </span>
     </div>
 </body>
@@ -204,9 +203,6 @@
                 elements[i].setAttribute("style", "animation-delay:" + i * .2 + "s;");
             }
         }
-
-        //setting current year to copyright <p>
-        document.getElementsByClassName("copyright")[0].innerHTML=`© ${new Date().getFullYear()} Nicon-Georgian Albu`;
 
         document.cookie = "visited=true;SameSite=Lax;expires=" + (new Date(Date.now() + (30 * 24 * 60 * 60 * 1000))).toUTCString() + ";path=/";
 
