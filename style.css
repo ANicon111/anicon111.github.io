@@ -8,6 +8,7 @@
     --rust-dark-orange: rgb(151, 44, 6);
     --rust-orange: rgba(167, 92, 0, 0.8);
     --rust-dark-orange: rgba(151, 44, 6, 0.8);
+    overscroll-behavior: none;
 }
 
 @keyframes entranceAnimation {
@@ -16,7 +17,7 @@
         opacity: 0;
     }
 
-    80%{
+    80% {
         transform: translateY(7.5vmin);
         opacity: 1;
     }
@@ -37,6 +38,10 @@
     }
 }
 
+.nw {
+    white-space: nowrap;
+}
+
 .backgroundLogo {
     width: 100vmin;
     animation-delay: 0.1s;
@@ -46,11 +51,11 @@
 }
 
 .background {
-    height: max( 61.89vw , 110vh );
-    width:auto;
-    position:fixed;
+    height: max(61.89vw, 110vh);
+    width: auto;
+    position: fixed;
     top: -5vh;
-    left:calc( 50% - max(55vw, 97.78vh) );
+    left: calc(50% - max(55vw, 97.78vh));
 }
 
 .right {
@@ -67,7 +72,7 @@
     animation-name: entranceAnimation;
     animation-duration: 1s;
     animation-fill-mode: forwards;
-    animation-timing-function: cubic-bezier(.5,0,.5,1);
+    animation-timing-function: cubic-bezier(.5, 0, .5, 1);
 }
 
 .top {
@@ -76,7 +81,7 @@
     text-align: center;
     position: absolute;
     overflow-x: hidden;
-    overflow-y:visible;
+    overflow-y: visible;
     top: 0;
     left: calc(50% - var(--screen-width) / 2);
     width: var(--screen-width);
@@ -86,12 +91,12 @@
 .top>.design {
     background-color: var(--black-transparent);
     position: absolute;
-    border:1vmin solid white;
-    border-radius:15vmin;
+    border: 1vmin solid white;
+    border-radius: 15vmin;
     top: -25%;
     left: 0;
     height: 115%;
-    width: calc( 100% - 2vmin );
+    width: calc(100% - 2vmin);
 }
 
 .top>p {
@@ -156,7 +161,7 @@
     animation-delay: 6s;
 }
 
-.flutter>.description{
+.flutter>.description {
     background-color: var(--flutter-blue);
 }
 
@@ -169,7 +174,7 @@
     animation-delay: 6s;
 }
 
-.rust>.description{
+.rust>.description {
     background-color: var(--rust-orange);
 }
 
