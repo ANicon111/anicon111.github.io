@@ -104,7 +104,7 @@
     padding: 0 2vmin;
     cursor: pointer;
     user-select: none;
-    transition: color 1s;
+    transition: color 0.3s;
     position: absolute;
 }
 
@@ -183,7 +183,7 @@
 }
 
 .hoverable {
-    transition: background-color 0.5s;
+    transition: background-color 0.2s;
 }
 
 .section>.description {
