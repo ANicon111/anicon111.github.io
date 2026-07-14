@@ -1,196 +1,278 @@
-/* declarations */
+/*!
+ *  Hack typeface https://github.com/source-foundry/Hack
+ *  License: https://github.com/source-foundry/Hack/blob/master/LICENSE.md
+ */
+@font-face {
+    font-family: 'Hack';
+    src: url('assets/fonts/hack-regular-subset.woff2?sha=3114f1256') format('woff2'), url('assets/fonts/hack-regular-subset.woff?sha=3114f1256') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hack';
+    src: url('assets/fonts/hack-bold-subset.woff2?sha=3114f1256') format('woff2'), url('assets/fonts/hack-bold-subset.woff?sha=3114f1256') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Hack';
+    src: url('assets/fonts/hack-italic-subset.woff2?sha=3114f1256') format('woff2'), url('assets/fonts/hack-italic-webfont.woff?sha=3114f1256') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Hack';
+    src: url('assets/fonts/hack-bolditalic-subset.woff2?sha=3114f1256') format('woff2'), url('assets/fonts/hack-bolditalic-subset.woff?sha=3114f1256') format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
+
+
 :root {
-    --flutter-blue: rgb(0, 199, 250);
-    --flutter-dark-blue: rgb(0, 67, 123);
-    --flutter-blue: rgba(0, 199, 250, 0.8);
-    --flutter-dark-blue: rgba(0, 67, 123, 0.8);
-    --rust-orange: rgb(167, 92, 0);
-    --rust-dark-orange: rgb(151, 44, 6);
-    --rust-orange: rgba(167, 92, 0, 0.8);
-    --rust-dark-orange: rgba(151, 44, 6, 0.8);
+    /* invariant */
+    --accent-csharp: #9179e4;
+    --accent-flutter: #00c7fa;
+    --accent-rust: #a75c00;
+    --accent-python: #306998;
+    --accent-javascript: #f0db4f;
+
     overscroll-behavior: none;
+    font-family: Hack, monospace;
+    color: var(--font);
+    background-image: url(assets/textures/desk.png);
+
+    /* color scheme dependant */
+    --background: #f0f4f9;
+    --card: #ffffff;
+    --font: #191919;
+    --font-strong: #000000;
+    --font-weak: #666666;
 }
 
-@keyframes entranceAnimation {
-    0% {
-        transform: translateY(-250vmin);
-        opacity: 0;
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #1e1f20;
+        --card: #0e0e0e;
+        --font: #cccccc;
+        --font-strong: #ffffff;
+        --font-weak: #999999;
     }
 
-    80% {
-        transform: translateY(7.5vmin);
-        opacity: 1;
-    }
-
-    100% {
-        transform: none;
-        opacity: 1;
-    }
-}
-
-@keyframes appearAnimation {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
+    .links>a>img {
+        filter: invert();
     }
 }
 
-.nw {
-    white-space: nowrap;
+div {
+    transition: transform 0.35s;
 }
 
-.backgroundLogo {
-    width: 100vmin;
-    animation-delay: 0.1s;
+button {
+    transition: transform 0.35s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--font-strong);
+}
+
+.hover {
+    transition: opacity 0.15s;
+    opacity: 1;
+}
+
+.hover:hover {
+    opacity: 0.85;
+}
+
+.weak {
+    font-size: 0.75rem;
+    color: var(--font-weak);
+    font-style: italic;
+}
+
+.folder-view {
     position: fixed;
     top: 0;
-    left: calc(50% - 50vmin);
-}
-
-.background {
-    height: max(61.89vw, 110vh);
-    width: auto;
-    position: fixed;
-    top: -5vh;
-    left: calc(50% - max(55vw, 97.78vh));
-}
-
-.right {
-    text-align: right;
-}
-
-.left {
-    text-align: left;
-}
-
-.visible {
-    transform: translateY(calc(-250vmin));
-    opacity: 0;
-    animation-name: entranceAnimation;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
-    animation-timing-function: cubic-bezier(.5, 0, .5, 1);
-}
-
-.top {
-    background-size: cover;
-    display: block;
-    text-align: center;
-    position: absolute;
-    overflow-x: hidden;
-    overflow-y: visible;
-    top: 0;
-    left: calc(50% - var(--screen-width) / 2);
-    width: var(--screen-width);
-    height: 100vmin;
-}
-
-.top>.design {
-    background-color: var(--black-transparent);
-    position: absolute;
-    border: 1vmin solid white;
-    border-radius: 15vmin;
-    top: -25%;
+    right: 0;
+    bottom: 0;
     left: 0;
-    height: 115%;
-    width: calc(100% - 2vmin);
 }
 
-.top>p {
-    margin: 0;
-    padding: 0 2vmin;
+.tab {
+    position: fixed;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
     cursor: pointer;
-    user-select: none;
-    transition: color 0.3s;
-    position: absolute;
+    border: 0;
+    padding: 0;
+    color: var(--font-strong);
 }
 
-.top>.blueAnimation:hover {
-    color: blue;
+.tab.about {
+    background-image: url(assets/textures/folder-cyan.png);
 }
 
-.top>.yellowAnimation:hover {
-    color: yellow;
+.tab.work {
+    background-image: url(assets/textures/folder-magenta.png);
 }
 
-.top>.introduction {
-    font-size: var(--font-size);
-    animation-delay: 0.25s;
-    top: 1vmin;
-    left: 1vmin;
+.tab.personal {
+    background-image: url(assets/textures/folder-yellow.png);
 }
 
-.top>.name {
-    font-size: calc(2.5 * var(--font-size));
-    animation-delay: 0.75s;
-    top: calc(2 * var(--font-size));
-    left: 6vmin;
+.folder {
+    padding: 1rem;
+    position: fixed;
+    background-color: var(--background);
+    border-color: var(--font-weak);
+    border-width: 1rem;
+    border-style: solid;
+    overflow: scroll;
+    scrollbar-width: none;
+    text-align: center;
 }
 
-.top>.nickname {
-    font-size: var(--font-size);
-    animation-delay: 1.25s;
-    top: calc(5 * var(--font-size));
-    right: 1vmin;
+.folder>section {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--font-weak);
+    margin-bottom: 1.5rem;
+    text-align: justify;
+    overflow: hidden;
 }
 
-.top>.description {
-    font-size: calc(1.5 * var(--font-size));
-    top: calc(50% - 5 * var(--font-size));
-    animation-delay: 2s;
+.folder.about {
+    border-image: url(assets/textures/folder-cyan.png) 20% round;
 }
 
-.top>.title {
-    font-size: calc(2 * var(--font-size));
-    bottom: 20vmin;
-    animation-delay: 3.5s;
+.folder.work {
+    border-image: url(assets/textures/folder-magenta.png) 20% round;
 }
 
-.bottom {
-    position: absolute;
-    top: 105vmin;
-    left: calc(50% - 0.5 * var(--screen-width));
-    width: var(--screen-width);
+.folder.personal {
+    border-image: url(assets/textures/folder-yellow.png) 20% round;
 }
 
-.flutter {
-    border-color: var(--flutter-blue);
-    animation-delay: 6s;
+.links>a>span {
+    font-size: 1rem;
+    cursor: pointer;
 }
 
-.flutter>.description {
-    background-color: var(--flutter-blue);
+.links>a>img {
+    width: 2rem;
+    height: 2rem;
+    padding: 0.5rem;
+    cursor: pointer;
 }
 
-.flutter>a>.hoverable:hover {
-    background-color: var(--flutter-dark-blue)
-}
-
-.rust {
-    border-color: var(--rust-orange);
-    animation-delay: 6s;
-}
-
-.rust>.description {
-    background-color: var(--rust-orange);
-}
-
-.rust>a>.hoverable:hover {
-    background-color: var(--rust-dark-orange)
-}
-
-.hoverable {
-    transition: background-color 0.2s;
-}
-
-.section>.description {
+.projects {
     width: 100%;
-    height: calc(2 * var(--font-size));
-    font-size: calc(2 * var(--font-size));
-    padding: 0 0 calc(var(--font-size) / 2) 0;
-    line-height: normal;
-    user-select: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.project {
+    display: flex;
+    flex-wrap: wrap;
+    flex-basis: 30rem;
+    flex-grow: 1;
+    background-color: var(--card);
+    color: var(--font);
+    text-align: justify;
+    text-decoration: none;
+    border-radius: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.project.csharp>div>h2 {
+    color: var(--accent-csharp);
+}
+
+.project.flutter>div>h2 {
+    color: var(--accent-flutter);
+}
+
+.project.rust>div>h2 {
+    color: var(--accent-rust);
+}
+
+.project.python>div>h2 {
+    color: var(--accent-python);
+}
+
+.project.javascript>div>h2 {
+    color: var(--accent-javascript);
+}
+
+.project>img {
+    width: 100%;
+    border-radius: 4px;
+}
+
+@media (orientation: landscape) {
+    .tab {
+        width: 2rem;
+        height: calc(100% / 3);
+        writing-mode: sideways-lr;
+        border-radius: 1rem 0 0 1rem;
+        left: 1rem;
+    }
+
+    .tab.about {
+        top: 1rem;
+    }
+
+    .tab.work {
+        top: calc(100% / 3);
+    }
+
+    .tab.personal {
+        top: calc(100% * 2 / 3 - 1rem);
+    }
+
+    .folder {
+        top: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        left: 2.75rem;
+    }
+}
+
+@media (orientation: portrait) {
+    .tab {
+        height: 2rem;
+        width: calc(100% / 3);
+        border-radius: 1rem 1rem 0 0;
+        top: 1rem;
+    }
+
+    .tab.about {
+        left: 1rem;
+    }
+
+    .tab.work {
+        left: calc(100% / 3);
+    }
+
+    .tab.personal {
+        left: calc(100% * 2 / 3 - 1rem);
+    }
+
+    .folder {
+        top: 2.75rem;
+        right: 1rem;
+        bottom: 1rem;
+        left: 1rem;
+    }
 }
