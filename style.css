@@ -66,10 +66,7 @@
     }
 }
 
-div {
-    transition: transform 0.35s;
-}
-
+div,
 button {
     transition: transform 0.35s;
 }
