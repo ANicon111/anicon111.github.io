@@ -30,7 +30,6 @@
     font-style: italic;
 }
 
-
 :root {
     /* invariant */
     --accent-csharp: #9179e4;
@@ -52,6 +51,10 @@
     --font-weak: #666666;
 }
 
+html {
+    font-size: min(max(100%, 3vmin), 150%);
+}
+
 @media (prefers-color-scheme: dark) {
     :root {
         --background: #1e1f20;
@@ -69,6 +72,7 @@
 div,
 button {
     transition: transform 0.35s;
+    transition-timing-function: ease-in-out;
 }
 
 h1,
@@ -78,6 +82,13 @@ h4,
 h5,
 h6 {
     color: var(--font-strong);
+}
+
+code {
+    font-family: Hack, monospace;
+    background-color: var(--card);
+    border: 1px solid var(--font-weak);
+    border-radius: 0.25rem;
 }
 
 .hover {
@@ -93,14 +104,6 @@ h6 {
     font-size: 0.75rem;
     color: var(--font-weak);
     font-style: italic;
-}
-
-.folder-view {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
 }
 
 .tab {
@@ -140,11 +143,12 @@ h6 {
 }
 
 .folder>section {
+    padding-top: 0.5rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--font-weak);
-    margin-bottom: 1.5rem;
-    text-align: justify;
+    margin-bottom: 1rem;
     overflow: hidden;
+    text-align: justify;
 }
 
 .folder.about {
@@ -219,7 +223,7 @@ h6 {
 
 @media (orientation: landscape) {
     .tab {
-        width: 2rem;
+        width: 2.5rem;
         height: calc(100% / 3);
         writing-mode: sideways-lr;
         border-radius: 1rem 0 0 1rem;
@@ -242,13 +246,13 @@ h6 {
         top: 1rem;
         right: 1rem;
         bottom: 1rem;
-        left: 2.75rem;
+        left: 3.25rem;
     }
 }
 
 @media (orientation: portrait) {
     .tab {
-        height: 2rem;
+        height: 2.5rem;
         width: calc(100% / 3);
         border-radius: 1rem 1rem 0 0;
         top: 1rem;
@@ -267,7 +271,7 @@ h6 {
     }
 
     .folder {
-        top: 2.75rem;
+        top: 3.25rem;
         right: 1rem;
         bottom: 1rem;
         left: 1rem;

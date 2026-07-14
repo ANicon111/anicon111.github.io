@@ -3,19 +3,25 @@ var selectedName = "about";
 async function selectFolder(name) {
     if (selectedName == name) return;
     selectedName = name;
-    folderView = document.getElementsByClassName(`folder-view`)[0];
+    folders = document.getElementsByClassName(`folder`);
     selectedFolder = document.getElementsByClassName(`folder ${name}`)[0];
+    tabs = document.getElementsByClassName(`tab`);
     selectedTab = document.getElementsByClassName(`tab ${name}`)[0];
 
-    folderView.style.transform = "translate(20vmax, 20vmax)";
-    selectedFolder.style.transform = "translate(-100vmax, -100vmax)";
-    selectedTab.style.transform = "translate(-100vmax, -100vmax)";
+    for (i = 0; i < 3; i++) {
+        folders[i].style.transform = "translate(20vw, 20vh)"
+        tabs[i].style.transform = "translate(20vw, 20vh)"
+    }
+    selectedFolder.style.transform = "translate(-100vw, -100vh)";
+    selectedTab.style.transform = "translate(-100vw, -100vh)";
     await new Promise(r => setTimeout(r, 350));
     selectedFolder.style.zIndex = zi;
     selectedTab.style.zIndex = zi;
-    folderView.style.transform = null;
-    selectedFolder.style.transform = null;
-    selectedTab.style.transform = null;
+    await new Promise(r => setTimeout(r, 50));
+    for (i = 0; i < 3; i++) {
+        folders[i].style.transform = "translate(0, 0)"
+        tabs[i].style.transform = "translate(0, 0)"
+    }
     zi++;
     document.cookie = `selectedName=${name}`;
 }
