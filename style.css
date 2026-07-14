@@ -40,8 +40,9 @@
 
     overscroll-behavior: none;
     font-family: Hack, monospace;
+    font-display: swap;
     color: var(--font);
-    background-image: url(assets/textures/desk.png);
+    background-image: url(assets/textures/desk.webp);
 
     /* color scheme dependant */
     --background: #f0f4f9;
