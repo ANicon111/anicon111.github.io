@@ -12,8 +12,8 @@ async function selectFolder(name) {
         folders[i].style.transform = "translate(20vw, 20vh)"
         tabs[i].style.transform = "translate(20vw, 20vh)"
     }
-    selectedFolder.style.transform = "translate(-100vw, -100vh)";
-    selectedTab.style.transform = "translate(-100vw, -100vh)";
+    selectedFolder.style.transform = "translate(-85vw, -85vh)";
+    selectedTab.style.transform = "translate(-85vw, -85vh)";
     await new Promise(r => setTimeout(r, 350));
     selectedFolder.style.zIndex = zi;
     selectedTab.style.zIndex = zi;
