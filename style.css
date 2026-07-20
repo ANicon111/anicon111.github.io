@@ -98,6 +98,7 @@ code {
 }
 
 .header {
+    font-size: min(max(66.6%, 2.5vmin), 100%);
     display: grid;
     width: 100%;
     margin: auto;
@@ -111,15 +112,15 @@ code {
 
 .header>img {
     grid-area: image;
-    width: 6rem;
-    height: 6rem;
+    width: 6em;
+    height: 6em;
     justify-self: self-end;
     align-self: center;
 }
 
 .header>h2 {
     grid-area: tag;
-    font-size: 1.25rem;
+    font-size: 1.25em;
     margin: 0;
     color: var(--font-weak);
     align-self: self-end;
@@ -127,7 +128,7 @@ code {
 
 .header>h1 {
     grid-area: name;
-    font-size: 2rem;
+    font-size: 2em;
     margin: 0;
     align-self: self-start;
 }
