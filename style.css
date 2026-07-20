@@ -175,7 +175,7 @@ code {
 }
 
 .folder {
-    padding: 1rem;
+    padding: 1rem 0 0 0;
     position: fixed;
     background-color: var(--background);
     border-color: var(--font-weak);
@@ -187,8 +187,7 @@ code {
 }
 
 .folder>section {
-    padding-top: 0.5rem;
-    padding-bottom: 1.5rem;
+    padding: 0.5rem 1rem 1.5rem 1rem;
     border-bottom: 1px solid var(--font-weak);
     margin-bottom: 1rem;
     overflow: hidden;
@@ -223,27 +222,25 @@ code {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
 }
 
 .project {
     display: flex;
     flex-wrap: wrap;
-    flex-basis: 30rem;
+    flex-basis: 25rem;
     flex-grow: 1;
     background-color: var(--card);
     color: var(--font);
     text-align: justify;
     text-decoration: none;
-    border-radius: 1rem;
     padding: 1rem;
     cursor: pointer;
 }
 
 .project>div>span {
-    border: 1px solid;
+    border: 0.125rem solid;
     border-radius: 0.5rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
     padding: 0.25rem;
 }
 
@@ -309,6 +306,16 @@ code {
         bottom: 1rem;
         left: 3.25rem;
     }
+
+    .projects {
+        width: calc(100% - 2rem);
+        margin: 0 1rem 0 1rem;
+        gap: 1rem;
+    }
+
+    .project {
+        border-radius: 1rem;
+    }
 }
 
 @media (orientation: portrait) {
@@ -336,5 +343,9 @@ code {
         right: 0rem;
         bottom: 0rem;
         left: 0rem;
+    }
+
+    .projects {
+        gap: 0.25rem;
     }
 }
