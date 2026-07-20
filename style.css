@@ -98,7 +98,7 @@ code {
 }
 
 .header {
-    font-size: min(max(66.6%, 2.5vmin), 100%);
+    font-size: min(max(50%, 2vmin), 100%);
     display: grid;
     width: 100%;
     margin: auto;
@@ -120,7 +120,7 @@ code {
 
 .header>h2 {
     grid-area: tag;
-    font-size: 1.25em;
+    font-size: 1.75em;
     margin: 0;
     color: var(--font-weak);
     align-self: self-end;
@@ -128,7 +128,7 @@ code {
 
 .header>h1 {
     grid-area: name;
-    font-size: 2em;
+    font-size: 2.5em;
     margin: 0;
     align-self: self-start;
 }
@@ -316,11 +316,11 @@ code {
         height: 2.5rem;
         width: calc(100% / 3);
         border-radius: 1rem 1rem 0 0;
-        top: 1rem;
+        top: 0.5rem;
     }
 
     .tab.about {
-        left: 1rem;
+        left: 0rem;
     }
 
     .tab.work {
@@ -328,13 +328,13 @@ code {
     }
 
     .tab.personal {
-        left: calc(100% * 2 / 3 - 1rem);
+        left: calc(100% * 2 / 3);
     }
 
     .folder {
-        top: 3.25rem;
-        right: 1rem;
-        bottom: 1rem;
-        left: 1rem;
+        top: 2.75rem;
+        right: 0rem;
+        bottom: 0rem;
+        left: 0rem;
     }
 }
