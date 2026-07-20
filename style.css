@@ -37,6 +37,11 @@
     --accent-rust: #a75c00;
     --accent-python: #306998;
     --accent-javascript: #f0db4f;
+    --accent-background-csharp: #9179e420;
+    --accent-background-flutter: #00c7fa20;
+    --accent-background-rust: #a75c0020;
+    --accent-background-python: #30699820;
+    --accent-background-javascript: #f0db4f20;
 
     overscroll-behavior: none;
     font-family: Hack, monospace;
@@ -53,7 +58,7 @@
 }
 
 html {
-    font-size: min(max(100%, 3vmin), 150%);
+    font-size: min(max(100%, 2.5vmin), 125%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -91,6 +96,43 @@ code {
     border: 1px solid var(--font-weak);
     border-radius: 0.25rem;
 }
+
+.header {
+    display: grid;
+    width: 100%;
+    margin: auto;
+    grid-template-areas:
+        "image tag"
+        "image name";
+    text-align: left;
+    column-gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.header>img {
+    grid-area: image;
+    width: 6rem;
+    height: 6rem;
+    justify-self: self-end;
+    align-self: center;
+}
+
+.header>h2 {
+    grid-area: tag;
+    font-size: 1.25rem;
+    margin: 0;
+    color: var(--font-weak);
+    align-self: self-end;
+}
+
+.header>h1 {
+    grid-area: name;
+    font-size: 2rem;
+    margin: 0;
+    align-self: self-start;
+}
+
+
 
 .hover {
     transition: opacity 0.15s;
@@ -197,24 +239,41 @@ code {
     cursor: pointer;
 }
 
-.project.csharp>div>h2 {
+.project>div>span {
+    border: 1px solid;
+    border-radius: 0.5rem;
+    font-size: 1.25rem;
+    padding: 0.25rem;
+}
+
+.project>div>.csharp {
     color: var(--accent-csharp);
+    border-color: var(--accent-csharp);
+    background-color: var(--accent-background-csharp);
 }
 
-.project.flutter>div>h2 {
+.project>div>.flutter {
     color: var(--accent-flutter);
+    border-color: var(--accent-flutter);
+    background-color: var(--accent-background-flutter);
 }
 
-.project.rust>div>h2 {
+.project>div>.rust {
     color: var(--accent-rust);
+    border-color: var(--accent-rust);
+    background-color: var(--accent-background-rust);
 }
 
-.project.python>div>h2 {
+.project>div>.python {
     color: var(--accent-python);
+    border-color: var(--accent-python);
+    background-color: var(--accent-background-python);
 }
 
-.project.javascript>div>h2 {
+.project>div>.javascript {
     color: var(--accent-javascript);
+    border-color: var(--accent-javascript);
+    background-color: var(--accent-background-javascript);
 }
 
 .project>img {
