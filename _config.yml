@@ -1,0 +1,4 @@
+url: "https://anicon111.containrr.com"
+baseurl: ""
+plugins:
+  - jekyll-sitemap
