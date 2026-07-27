@@ -23,12 +23,12 @@ async function selectFolder(name) {
         tabs[i].style.transform = "translate(0, 0)"
     }
     zi++;
-    document.cookie = `selectedName=${name}`;
+    document.cookie = `selected-name=${name}`;
 }
 
 
 async function load() {
-    selectedName = document.cookie.split("=")[1] ?? "about";
+    selectedName = ('; '+document.cookie).split(`; selected-name=`).pop().split(';')[0] ?? "about";
     document.getElementsByClassName(`folder ${selectedName}`)[0].style.zIndex = zi;
     document.getElementsByClassName(`tab ${selectedName}`)[0].style.zIndex = zi;
     zi++;
